@@ -31,10 +31,12 @@ class Thermistance
         return read_temperatre(analog_pin,res);
     }
     private:
-    float A = -14.63371957;
-    float B = 4791.84200000;
-    float C = -115334.00000000;
-    float D = -3730535.00000000;
+
+    float A = 3.354016/1000;
+    float B = 2.569850/10000;
+    float C = 2.620131/1000000;
+    float D = 6.383091/100000000;
+
     float Rref = 10000;
     float read_temperatre(uint8_t pin, float res)
     {
@@ -44,9 +46,9 @@ class Thermistance
 
         float Vout_analogique = (V_ref/1023)*(float)Vout;
         Rtherm = Vout_analogique*res/(V_ref-Vout);
-        temperature = A + B*log(Rtherm/Rref)+C*pow(log(Rtherm/Rref),2)+D*pow(log(Rtherm/Rref),3);
+        temperature = 1/(A + B*log(Rtherm/Rref)+C*pow(log(Rtherm/Rref),2)+D*pow(log(Rtherm/Rref),3));
 
-        return temperature;
+        return temperature-273.15;
     }
 
 

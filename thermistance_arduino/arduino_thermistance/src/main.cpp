@@ -1,10 +1,11 @@
 #include <Arduino.h>
 #include "mcp2515.h"
-
+#include "thermistance.h"
 struct can_frame canMsg;
 MCP2515 mcp2515(53);
 int n;
-
+float temp;
+Thermistance thermistance;
 void setup() {
   
   Serial.begin(115200);
@@ -17,10 +18,15 @@ void setup() {
   //Serial.println("ID  DLC   DATA");
   //Serial.print("#1 #2 #3 #4 #5 \n");
   n = 0;
+  temp = 0;
+  thermistance.init_thermistance(40);
 }
 
 void loop() {
-
+  temp = thermistance.get_temperature();
+  Serial.println(temp);
+  delay(500);
+/**
   Serial.print(n);
   Serial.print(",");
   Serial.print(n+1);
@@ -34,7 +40,9 @@ void loop() {
   Serial.print(n+5);
   Serial.print("\n");
   n++;
-  delay(500);
+  delay(500);*/
+
+
 /*
   if (mcp2515.readMessage(&canMsg) == MCP2515::ERROR_OK) {
     Serial.print(canMsg.can_id, HEX); // print ID
