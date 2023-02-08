@@ -33,17 +33,21 @@ void setup() {
   Serial.begin(115200);
   
   mcp2515.reset();
-  mcp2515.setBitrate(CAN_125KBPS);
+  mcp2515.setBitrate(CAN_500KBPS);
   mcp2515.setNormalMode();
   
   Serial.println("°º¤ø,,ø¤º°`°º¤ø,,ø¤°º¤ø,,ø¤º°`°º¤ø CAN NODE °º¤ø,,ø¤º°`°º¤ø,,ø¤°º¤ø,,ø¤º°`°º¤ø");
 }
 
 void loop() {
+  if (mcp2515.sendMessage(&canMsg1) == 0) 
+  {
+    Serial.println("Messages sent");
+  }
   mcp2515.sendMessage(&canMsg1);
   mcp2515.sendMessage(&canMsg2);
 
-  Serial.println("Messages sent");
+  
   
   delay(100);
 }
