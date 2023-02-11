@@ -14,7 +14,7 @@ def save_data(data, file_name, length):
         f.write(',')
     f.write('\n')
     for i in range(length2):
-        print(data[i])
+        #print(data[i])
         f.write(data[i])
         f.write('\n')
     f.close()
@@ -44,27 +44,30 @@ for COM_port in ports:
     print(str(COM_port))
 
 
-# nom_port = input("Choisie le port que tu veux")
-# baudrate = input("Choisie le baudrate")
-# acquisition_time = input("Combient de temps l'acquisition (secondes)")
-# instance = init_serial_port("COM4","115200")
-
+nom_port = input("Choisie le port que tu veux")
+baudrate = input("Choisie le baudrate (recommender 115200)")
+acquisition_time = input("Combient de temps l'acquisition (secondes)")
 
 temps_ini = time.time()
 n = 0
 data = []
-instance = init_serial_port("COM4", "115200")
 
-while temps_passer <= int(5):
+instance = init_serial_port(nom_port, baudrate)
+instance.flushInput()
+instance.flushOutput()
+while temps_passer <= int(acquisition_time):
 
     if instance.in_waiting:
         line = instance.read_until()
         data.append((line.decode('utf').strip('\n')))
-
+        instance.flushInput()
+        instance.flushOutput()
         n = n+1
         print(line.decode('utf').strip('\n'))
         temps_passer = calculate_time(temps_ini)
+        instance.flushInput()
+        instance.flushOutput()
 instance.close()
 save_data(data, "test_frigo.csv", n)
 
-print("done")
+print("done :) !")
