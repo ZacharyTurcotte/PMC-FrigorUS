@@ -45,17 +45,17 @@ for COM_port in ports:
 
 
 nom_port = input("Choisie le port que tu veux")
-baudrate = input("Choisie le baudrate (recommender 115200)")
-acquisition_time = input("Combient de temps l'acquisition (secondes)")
-
+#baudrate = input("Choisie le baudrate (recommender 115200)")
+#acquisition_time = input("Combient de temps l'acquisition (secondes)")
+#nom_du_fichier = input("Mettre le nom du ficher et ajouter le .csv à la fin")
 temps_ini = time.time()
 n = 0
 data = []
 
-instance = init_serial_port(nom_port, baudrate)
+instance = init_serial_port("COM3", "115200")
 instance.flushInput()
 instance.flushOutput()
-while temps_passer <= int(acquisition_time):
+while temps_passer <= int(60):
 
     if instance.in_waiting:
         line = instance.read_until()
@@ -68,6 +68,6 @@ while temps_passer <= int(acquisition_time):
         instance.flushInput()
         instance.flushOutput()
 instance.close()
-save_data(data, "test_frigo.csv", n)
+save_data(data, nom_du_fichier, n)
 
 print("done :) !")

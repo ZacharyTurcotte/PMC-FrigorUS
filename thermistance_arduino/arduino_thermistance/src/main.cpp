@@ -6,7 +6,7 @@ struct can_frame canMsg;
 MCP2515 mcp2515(53);
 
 int n;
-float buff_temp[5];
+
 
 Thermistance thermistance0;
 Thermistance thermistance1;
@@ -14,6 +14,8 @@ Thermistance thermistance2;
 Thermistance thermistance3;
 Thermistance thermistance4;
 
+const int nb_thermistance = 5;
+float buff_temp[nb_thermistance];
 void setup() {
   
   Serial.begin(115200);
@@ -52,13 +54,13 @@ void loop() {
   buff_temp[3] = thermistance3.get_temperature();
   buff_temp[4] = thermistance4.get_temperature();
   
-  for(int i = 0;i<=4;i++)
+  for(int i = 0;i<=nb_thermistance-1;i++)
   {
 
     Serial.print(buff_temp[i]);
     Serial.print(',');
   }
     Serial.print('\n');
-    delay(500);
+    delay(1000);
 
 }

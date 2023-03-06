@@ -4,7 +4,7 @@
 #include <math.h>
 // reference pour A,B,C,D coef : https://www.vishay.com/en/thermistors/ntc-rt-calculator/
 // datasheet : https://www.vishay.com/docs/29049/ntcle100.pdf
-
+// reference calcul coef : https://www.thinksrs.com/downloads/programs/therm%20calc/ntccalibrator/ntccalculator.html
 class Thermistance
 {
     public: 
@@ -32,10 +32,14 @@ class Thermistance
     }
     private:
 
-    float A = 3.354016/1000;
-    float B = 2.569850/10000;
-    float C = 2.620131/1000000;
-    float D = 6.383091/100000000;
+    //float A = 3.354016/1000;
+    //float B = 2.569850/10000;
+    //float C = 2.620131/1000000;
+    //float D = 6.383091/100000000;
+    float A = 1.131024546/1000;
+    float B = 2.338051738/10000;
+    float C = 0;
+    float D = 0.8903773352/10000000;
     float Rref = 10000;
     float read_temperatre(uint8_t pin, float res)
     {
