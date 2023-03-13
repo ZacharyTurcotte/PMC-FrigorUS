@@ -1,6 +1,6 @@
 #ifndef THERMISTANCE_H_
 
-# include <Arduino.h>
+#include <Arduino.h>
 #include <math.h>
 // reference pour A,B,C,D coef : https://www.vishay.com/en/thermistors/ntc-rt-calculator/
 // datasheet : https://www.vishay.com/docs/29049/ntcle100.pdf
@@ -48,7 +48,7 @@ class Thermistance
         
         float Rtherm = 0;
         Rtherm = Rref*(1023/Vout-1);
-        temperature = 1/(A + B*log(Rtherm/Rref)+C*pow(log(Rtherm/Rref),2)+D*pow(log(Rtherm/Rref),3));
+        temperature = 1/(A + B*log(Rtherm)+C*pow(log(Rtherm),2)+D*pow(log(Rtherm),3));
 
         return temperature-273.15;
     }
