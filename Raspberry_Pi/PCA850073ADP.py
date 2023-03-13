@@ -14,14 +14,13 @@ import time
 #Months 09h
 #Years 0Ah
 
+#ressource https://www.nxp.com/products/peripherals-and-logic/signal-chain/real-time-clocks/automotive-rtcs/automotive-tiny-real-time-clock-calendar-with-alarm-function-and-ic-bus:PCA85073A
 
 
 class PCA85073ADP:
-    def __init__(self, bus_num=1, rtc_address=0xA2): #1010001 Vérifier 0x51, maybe 0xA2
-                                                   #data sheet page 25 donnes A2 c'est
-                                                   # un bit a 0 a la fin
-        self.bus_num = bus_num
-        self.rtc_address = rtc_address
+    def __init__(self, bus_num=1, rtc_READ_address=0xA3,rtc_WRITE_address=0xA2): 
+        self.rtc_write_address = rtc_WRITE_address
+        self.rtc_read_address = rtc_READ_address
         self.bus = smbus.SMBus(bus_num)
         control_1 = 0b10000000 # a changer
         control_2 = 0b00000000 #bit 0 a 0 aucun interupts d'alarme
@@ -29,7 +28,7 @@ class PCA85073ADP:
         self.bus.write_i2c_block_data(self.rtc_address,0x00,control_2)
     
     def read_datetime(self):
-        rtc_data = self.bus.read_i2c_block_data(self.rtc_address, 0x04, 7)
+        rtc_data = self.bus.write_i2c_block_data(self.rtc_write_address, 0x04)
 
         seconds = (rtc_data[0] & 0x7f) + (rtc_data[6] & 0x80)
         minutes = rtc_data[1] & 0x7f
