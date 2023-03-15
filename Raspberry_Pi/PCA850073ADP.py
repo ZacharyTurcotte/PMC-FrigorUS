@@ -17,6 +17,7 @@ import time
 #ressource https://www.nxp.com/products/peripherals-and-logic/signal-chain/real-time-clocks/automotive-rtcs/automotive-tiny-real-time-clock-calendar-with-alarm-function-and-ic-bus:PCA85073A
 
 
+
 class PCA85073ADP:
     def __init__(self, bus_num=1, rtc_READ_address=0xA3,rtc_WRITE_address=0xA2): 
         self.rtc_write_address = rtc_WRITE_address
