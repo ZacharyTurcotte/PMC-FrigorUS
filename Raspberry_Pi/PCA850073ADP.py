@@ -1,7 +1,7 @@
 import smbus
 import time
 
-#Addresses
+#Registre
 #Control_1 00h
 #Control_2 01h
 #Offset 02h
