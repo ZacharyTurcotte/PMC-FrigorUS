@@ -26,7 +26,7 @@ def main():
 	#RTC_timer.write_datetime(23,12,1,31,23,59,58)
 	#ADC = MAX11625EEG(3.3,2,spi)
 	IO_Exp = MCP23017()
-	Thermistance = thermistance_NTC(3.3,2,spi)
+	Thermistance = thermistance_NTC(3.3,2,spi,16)
 	IO_Exp.write_all_pin(0b11001000,0b10010010)
 	#true_ADC = MCP3008_IP(5,1)
 	while(True):
