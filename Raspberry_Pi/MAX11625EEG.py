@@ -7,17 +7,17 @@ class MAX11625EEG:
 #public 
 
 	def __init__(self,New_Vref,CS_pin,spi):
+
 		self.Vref = New_Vref
-		self.spi = spi
+		self.Cs_pin = CS_pin #Si on utilise un chip select non officiel. 
+		self.spi = spi # on assigne le spi qu'on a unit dans le main.
 		self.Nb_channel = 16
-		#spi.xfer2([0b00011000]) # clear FIFO
+		spi.xfer2([0b00011000]) # clear FIFO
 		spi.writebytes([0b00100000]) # config averager
 		spi.writebytes([0b01100100]) # config setup bit 5 et 4 10
 		
-		#self.CS = CS_pin
-		#self.led = LED(self.CS)
-		
-	def read_adc_SE(self,channel,spi):
+
+	def read_adc_SE(self,channel):
 		
 		if (channel >= 16 or channel < 0):
 			raise ValueError("Choisiser une channel valide")
@@ -47,29 +47,39 @@ class MAX11625EEG:
 		
 		return self.__convert_bit_to_analog(data)
 	
+
 	def read_all_channel(self):
+
 		out = [0]*16
 		mask0 = 0b10000110
-		for i in range(16):
+		
+		for i in range(15):
+			
 			mask1 = i<<3
-			val = self.spi.xfer2([1,mask1|mask0,0])
-			print(val)
-			#data = (((val[1]&3) << 8) + val[2])
-			#out[i] = self.__convert_bit_to_analog(data)
+			val = self.spi.xfer2([1,mask0|mask1,0])
+			out[i] = self.__convert_bit_to_analog((val[0] << 6)|(val[1] >> 2))
+			
+		return out
 		
-		#return out
-		
+
 	def reset_ADC(self):
-		self.spi.writebytes([0b00010000])
+
+		self.spi.writebytes([0b00010000]) # reset config of the ADC
 #private
 
+
 	def __convert_bit_to_analog(self,data):
+
 		return data*self.Vref/1024
 
+
 	def __CS_LOW(self): # sert de CS
+
 		self.led.off()
 
+
 	def __CS_HIGH(self):# sert de CS
+
 		self.led.on()
 
 

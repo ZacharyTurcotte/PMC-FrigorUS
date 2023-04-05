@@ -2,6 +2,8 @@ import spidev
 from gpiozero import LED # pour le CS, marche mieux que les autres!
 import time
 
+# not use anymore, test how the SPI works on the Pi
+
 class MCP3008_IP:
 	
 #public 

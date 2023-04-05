@@ -1,9 +1,5 @@
 import smbus
-import numpy as np
-import time 
-
-		
-import smbus
+import numpy as np 
 
 class MCP23017:
 	
@@ -28,16 +24,26 @@ class MCP23017:
 			self.bus.write_byte_data(self.address, 0x0A, reg_val)
 
 
-	def write_pin(self, pin, value):
+	def write_pin(self, pin, value, bank):
         # set the output value for a given pin
-		if value == 1:
-			reg_val = self.bus.read_byte_data(self.address, 0x09)
-			reg_val |= (1 << pin) # set bit to 1 for high
-			self.bus.write_byte_data(self.address, 0x09, reg_val)
+		if bank =='A':
+			if value == 1:
+				reg_val = self.bus.read_byte_data(self.address, 0x09)
+				reg_val |= (1 << pin) # set bit to 1 for high
+				self.bus.write_byte_data(self.address, 0x09, reg_val)
+			else:
+				reg_val = self.bus.read_byte_data(self.address, 0x09)
+				reg_val &= ~(1 << pin) # set bit to 0 for low
+				self.bus.write_byte_data(self.address, 0x09, reg_val)
 		else:
-			reg_val = self.bus.read_byte_data(self.address, 0x09)
-			reg_val &= ~(1 << pin) # set bit to 0 for low
-			self.bus.write_byte_data(self.address, 0x09, reg_val)
+			if value == 1:
+				reg_val = self.bus.read_byte_data(self.address, 0x09)
+				reg_val |= (1 << pin) # set bit to 1 for high
+				self.bus.write_byte_data(self.address, 0x09, reg_val)
+			else:
+				reg_val = self.bus.read_byte_data(self.address, 0x09)
+				reg_val &= ~(1 << pin) # set bit to 0 for low
+				self.bus.write_byte_data(self.address, 0x09, reg_val)
 	
 	
 	def write_all_pin(self, pinA,pinB):
@@ -47,14 +53,24 @@ class MCP23017:
 		self.bus.write_byte_data(self.address, 0x1A, pinB)
 
 	
-	def read_pin(self, pin):
-        # read the input value for a given pin 
-		reg_val = self.bus.read_byte_data(self.address, 0x09)
+	def read_pin(self, pin, bank):
+        # read the input value for a given pin
+		
+		if bank == 'A': 
+			reg_val = self.bus.read_byte_data(self.address, 0x09)
+		else:
+			reg_val = reg_val = self.bus.read_byte_data(self.address, 0x19)
+
 		return (reg_val >> pin) & 0x01
 
 
 	def read_all_pin(self):
-		reg_val = self.bus.read_byte_data(self.address,0x09)
+		
+		reg_val = [0]*2
+		
+		reg_val[0] = self.bus.read_byte_data(self.address,0x09)
+		reg_val[1] = self.bus.read_byte_data(self.address,0x19)
+
 		return reg_val
 	
 	
