@@ -5,7 +5,6 @@ from thermistance import thermistance_NTC
 
 class heat_pad:
 
-
     def __init__(self,temp_min, temp_max,spi,nb_thermistance):
         
         self.IO_Exp = MCP23017()
