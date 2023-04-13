@@ -1,0 +1,21 @@
+----------------------------------------------------------------------------------------------------------------------------------
+NCDrill File Report For: rasp_sheild.PcbDoc   3/23/2023  2:57:29 PM
+----------------------------------------------------------------------------------------------------------------------------------
+
+Layer Pair : Top to Bottom
+ASCII RoundHoles File : rasp_sheild.TXT
+
+Tool       Hole Size               Hole Tolerance               Hole Type       Hole Count   Plated         Tool Travel
+----------------------------------------------------------------------------------------------------------------------------------
+T1      0.508mm (20mil)                                           Round             125       PTH        1018.18mm (40.09inch)
+T2      1.02mm (40mil)                                            Round             108       PTH        615.78mm (24.24inch)
+T3      1.1mm (43mil)                                             Round             3         PTH        5.08mm (0.20inch)
+T4      1.2mm (47mil)                                             Round             12        PTH        27.94mm (1.10inch)
+T5      1.3mm (51mil)                                             Round             4         PTH        80.41mm (3.17inch)
+T6      3.2mm (126mil)                                            Round             3         PTH        219.83mm (8.65inch)
+T7      2.75mm (108mil)                                           Round             4         NPTH       191.94mm (7.56inch)
+T8      3mm (118mil)                                              Round             9         NPTH       172.50mm (6.79inch)
+----------------------------------------------------------------------------------------------------------------------------------
+Totals                                                                              268
+
+Total Processing Time (hh:mm:ss) : 00:00:00

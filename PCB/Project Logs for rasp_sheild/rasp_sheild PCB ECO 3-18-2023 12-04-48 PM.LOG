@@ -1,0 +1,26 @@
+Add Component: Footprint Not Found SC32S-7PF20PPM
+Added Pin To Net: NetName=5V Pin=J1-1
+Added Pin To Net: NetName=3V3 Pin=J1-2
+Added Pin To Net: NetName=5V Pin=J1-3
+Added Pin To Net: NetName=SDA Pin=J1-4
+Added Pin To Net: NetName=GND Pin=J1-5
+Added Pin To Net: NetName=SCL Pin=J1-6
+Added Pin To Net: NetName=GND Pin=J1-10
+Added Pin To Net: NetName=RTC_nINT Pin=J1-12
+Added Pin To Net: NetName=ADC1_nEOC Pin=J1-14
+Added Pin To Net: NetName=3V3 Pin=J1-18
+Added Pin To Net: NetName=GND Pin=J1-19
+Added Pin To Net: NetName=MOSI Pin=J1-20
+Added Pin To Net: NetName=CAN_nINT Pin=J1-21
+Added Pin To Net: NetName=MISO Pin=J1-22
+Added Pin To Net: NetName=CAN_nCS Pin=J1-23
+Added Pin To Net: NetName=SCLK Pin=J1-24
+Added Pin To Net: NetName=ADC1_nCS Pin=J1-25
+Added Pin To Net: NetName=GND Pin=J1-26
+Added Pin To Net: NetName=GND Pin=J1-29
+Added Pin To Net: NetName=GND Pin=J1-33
+Added Pin To Net: NetName=GND Pin=J1-40
+Add Pin To Net: Unknown Pin: Pin Y1-1
+Add Pin To Net: Unknown Pin: Pin Y1-2
+Added Member To Class: ClassName=rasp_sheild_main Member=Component J1 PRT-14275
+Add Class Member: Failed to add class member : Component Y1 SC32S-7PF20PPM

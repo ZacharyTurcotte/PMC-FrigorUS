@@ -1,0 +1,6 @@
+Added Pin To Net: NetName=IO_EXT_INTA Pin=J1-15
+Added Pin To Net: NetName=IO_EXT_INTA Pin=U3-20
+Added Net: Name=IO_EXT_INTA
+Added Pin To Net: NetName=IO_EXT_INTB Pin=J1-16
+Added Pin To Net: NetName=IO_EXT_INTB Pin=U3-19
+Added Net: Name=IO_EXT_INTB

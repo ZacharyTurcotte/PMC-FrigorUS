@@ -1,0 +1,46 @@
+Removed Pin From Net: NetName=5V Pin=J1-1
+Removed Pin From Net: NetName=3V3 Pin=J1-2
+Removed Pin From Net: NetName=5V Pin=J1-3
+Removed Pin From Net: NetName=SDA Pin=J1-4
+Removed Pin From Net: NetName=GND Pin=J1-5
+Removed Pin From Net: NetName=SCL Pin=J1-6
+Removed Pin From Net: NetName=GND Pin=J1-10
+Removed Pin From Net: NetName=RTC_nINT Pin=J1-12
+Removed Pin From Net: NetName=ADC1_nEOC Pin=J1-14
+Removed Pin From Net: NetName=3V3 Pin=J1-18
+Removed Pin From Net: NetName=GND Pin=J1-19
+Removed Pin From Net: NetName=MOSI Pin=J1-20
+Removed Pin From Net: NetName=CAN_nINT Pin=J1-21
+Removed Pin From Net: NetName=MISO Pin=J1-22
+Removed Pin From Net: NetName=CAN_nCS Pin=J1-23
+Removed Pin From Net: NetName=SCLK Pin=J1-24
+Removed Pin From Net: NetName=ADC1_nCS Pin=J1-25
+Removed Pin From Net: NetName=GND Pin=J1-26
+Removed Pin From Net: NetName=GND Pin=J1-29
+Removed Pin From Net: NetName=GND Pin=J1-33
+Removed Pin From Net: NetName=GND Pin=J1-40
+Add Component: Footprint Not Found SC32S-7PF20PPM
+Added Pin To Net: NetName=3V3 Pin=J1-1
+Added Pin To Net: NetName=5V Pin=J1-2
+Added Pin To Net: NetName=SDA Pin=J1-3
+Added Pin To Net: NetName=5V Pin=J1-4
+Added Pin To Net: NetName=SCL Pin=J1-5
+Added Pin To Net: NetName=GND Pin=J1-6
+Added Pin To Net: NetName=GND Pin=J1-9
+Added Pin To Net: NetName=RTC_nINT Pin=J1-11
+Added Pin To Net: NetName=ADC1_nEOC Pin=J1-13
+Added Pin To Net: NetName=3V3 Pin=J1-17
+Added Pin To Net: NetName=MOSI Pin=J1-19
+Added Pin To Net: NetName=GND Pin=J1-20
+Added Pin To Net: NetName=MISO Pin=J1-21
+Added Pin To Net: NetName=CAN_nINT Pin=J1-22
+Added Pin To Net: NetName=SCLK Pin=J1-23
+Added Pin To Net: NetName=CAN_nCS Pin=J1-24
+Added Pin To Net: NetName=GND Pin=J1-25
+Added Pin To Net: NetName=ADC1_nCS Pin=J1-26
+Added Pin To Net: NetName=GND Pin=J1-30
+Added Pin To Net: NetName=GND Pin=J1-34
+Added Pin To Net: NetName=GND Pin=J1-39
+Add Pin To Net: Unknown Pin: Pin Y1-1
+Add Pin To Net: Unknown Pin: Pin Y1-2
+Add Class Member: Failed to add class member : Component Y1 SC32S-7PF20PPM

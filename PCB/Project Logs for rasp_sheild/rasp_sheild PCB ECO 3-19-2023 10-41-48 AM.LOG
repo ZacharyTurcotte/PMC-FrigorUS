@@ -1,0 +1,8 @@
+Added Component: Designator=BT(1058 BATT COIN HOLDER)
+Add component (AddParameter): Name = "Case/Package"; Value = "1058 SMT"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Max Operating Temperature"; Value = "145°C"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Min Operating Temperature"; Value = "-50°C"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Mounting Technology"; Value = "SM"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Pins"; Value = "2"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "RoHS Compliant"; Value = "Yes"; VariantName = "[No Variations]"
+Added Member To Class: ClassName=rasp_sheild_i2c Member=Component BT 1058 Coin cell holder

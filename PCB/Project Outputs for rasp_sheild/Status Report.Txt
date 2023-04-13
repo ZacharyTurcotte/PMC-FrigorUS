@@ -1,0 +1,14 @@
+Project Outputs Generation Report
+---------------------------------
+Start Output Generation At 4:15:45 PM On 3/23/2023
+
+Output: BOM
+Type  : BOM
+From  : Project [rasp_sheild.PrjPcb]
+   Generated File[//d.docs.live.net/1075367ffb83013a/Desktop/uni/pmc/760/altium/rasp_sheild/Project Outputs for rasp_sheild/BOM/BOM-rasp_sheild.xlsx]
+
+
+Files Generated   : 1
+Documents Printed : 0
+
+Finished Output Generation At 4:15:50 PM On 3/23/2023
