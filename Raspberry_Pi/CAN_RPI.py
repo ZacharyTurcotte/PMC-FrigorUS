@@ -14,16 +14,9 @@ class CAN_driver:
 		
 		self.bitrate = str(bitrate)
 		self.CAN_channel = str(canX)
-		self.soc_id = 0x90
-		self.voltage_id = 0x91
-		self.max_temp_id = 0x92
-		self.mos_status_id = 0x93
-		self.cell_voltage_id =0x95
-		self.cell_temperature_id = 0x96
-		self.equilibrum_state_id = 0x97
-		self.faillure_id = 0x98
-		#os.system('sudo ip link set ' + str(canX) + ' type can bitrate ' +str(bitrate))
-		#os.system('sudo ifconfig '+ str(canX) + ' up')
+		
+		os.system('sudo ip link set ' + str(canX) + ' type can bitrate ' +str(bitrate))
+		os.system('sudo ifconfig '+ str(canX) + ' up')
 		self.can0 = can.interface.Bus(channel = self.CAN_channel ,bustype='socketcan')
 
 		
@@ -37,6 +30,7 @@ class CAN_driver:
 		msg1 = can.Message(arbitration_id=id,is_extended_id=False,is_remote_frame=True)	
 		self.can0.send(msg1)
 		msg = self.__read_can_bus(1.0) #timeout après 1 seconde
+		print(msg)
 		if msg is None:
 			print("timeout, aucun message recu")
 			return None

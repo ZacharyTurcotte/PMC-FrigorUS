@@ -29,7 +29,7 @@ class thermistance_NTC:
 		out = [0] * len(Vout)
 		
 		for i in range(len(Vout)):
-			Rth = Rth = self.Rref*(self.Vref/(Vout[i]+1e-6)-1)
+			Rth = self.Rref*(self.Vref/(Vout[i]+1e-6)-1)
 			out[i] = self.__calculte_temp(Rth)
 
 		return out

@@ -53,9 +53,10 @@ class MAX11625EEG:
 		out = [0]*16
 		mask0 = 0b10000110
 		
-		for i in range(15):
+		for i in range(16):
 			
 			mask1 = i<<3
+			print(mask1)
 			val = self.spi.xfer2([1,mask0|mask1,0])
 			out[i] = self.__convert_bit_to_analog((val[0] << 6)|(val[1] >> 2))
 			
